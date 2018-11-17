@@ -3,9 +3,9 @@
 PROTECTED_PACKAGES="raspberrypi-ui-mods rpi-update pi-package pi-package-session qt5-gtk-platformtheme"
 
 ./fix-sources.sh
-./gen-stealthrpi-packages.sh
-./gen-libcanberra-packages.sh
-./gen-minetest-data-package.sh
+./stealthrpi-packages.sh
+./libcanberra-packages.sh
+./minetest-data-package.sh
 sudo dpkg --install *.deb
 
 sudo apt install -y libgcc1:arm64 gcc-6-base:arm64 libc6:arm64 ${PROTECTED_PACKAGES} # basic deps
