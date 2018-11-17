@@ -19,7 +19,8 @@ This script even runs on a standard 32-bit Raspbian system image. When necessary
 will install **qemu-user** so you can seamlessly run 64-bit commands. Heavy
 graphical applications won't work in emulation, but try out Nethack and other console
 commands. After that point you can consider whether it still makes sense to replace
-the kernel for true ARM64 execution.
+the kernel for true ARM64 execution. Furthermore, this means you can trial a
+system configuration on a Pi 2, Pi Zero, or other boards with 32-bit hardware.
 
 If an error occurs partway through, the *.deb files remain saved for troubleshooting or
 manual installation. Each helper script is designed to detect past progress and avoid
