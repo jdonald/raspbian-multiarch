@@ -12,8 +12,8 @@ fi
 echo "32-bit kernel detected, setting up qemu-user for (simple) aarch64 programs"
 sudo apt install -y qemu-system-arm qemu-user ${PROTECTED_PACKAGES}
 
-if ! update-binfmts --display | grep -q qemu-aarch64; then
-   cp -f qemu-aarch64 /var/lib/binfmts/
+if ! update-binfmts --display | grep -q "qemu-aarch64"; then
+   cp -vf qemu-aarch64 /var/lib/binfmts/
    sudo update-binfmts --enable qemu-aarch64
 fi
 echo "binfmt_misc updated for qemu-aarch64. If later you install a 64-bit kernel, run"

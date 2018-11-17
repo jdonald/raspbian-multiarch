@@ -10,7 +10,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553 #
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F # Mozilla
 
 sudo dpkg --add-architecture arm64
-sudo cp -f debian.list /etc/apt/sources.list.d/
+sudo cp -vf debian.list /etc/apt/sources.list.d/
 if [ ! -e /etc/apt/sources.list.d/firefox.list ]; then
     echo "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/firefox.list
     echo "deb-src http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/firefox-source.list
