@@ -1,2 +1,20 @@
 # raspbian-multiarch
-Revamp Rasbpian's APT packages to work with armhf and aarch64 side-by-side
+
+On a fresh Raspbian installation, clone this repo and run:
+
+    ./raspbian-multiarch.sh
+
+This script sets up a hybrid 32-bit / 64-bit user environment, so a great starting
+image is [Raspbian with a 64-bit kernel](https://github.com/Crazyhead90/pi64/releases).
+The process should complete in about 10 minutes on a Pi 3B+, but will take longer
+if you have a slow internet connection and get bottlenecked on downloading packages.
+
+You can even run from the standard 32-bit Raspbian system image. When necessary, the script
+will install **qemu-user** so you can seamlessly run some 64-bit packages. Heavy
+graphical applications won't work in emulation, but try out Nethack and other console
+commands. After that point you can consider whether it still makes sense to replace
+the kernel for true ARM64 execution.
+
+If an error occurs partway through, the *.deb files remain saved for troubleshooting or
+manual installation. Each helper script is designed to detect past progress and avoid
+repeating slow parts if attempted a second time.
