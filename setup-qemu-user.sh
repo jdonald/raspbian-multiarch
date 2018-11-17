@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-if "$(uname -m)" == "aarch64"; then
+if [ "$(uname -m)" == "aarch64" ]; then
     echo "64-bit kernel detected, good to go"
     exit 0
 fi
