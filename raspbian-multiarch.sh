@@ -31,3 +31,4 @@ PROTECTED_PACKAGES="${PROTECTED_PACKAGES}" ./setup-qemu-user.sh
 sudo apt autoremove -y
 file /usr/bin/figlet-figlet
 figlet "figlet : arm64"
+echo "Next, run ./raspbian-i386.sh if you want i386 packages too"

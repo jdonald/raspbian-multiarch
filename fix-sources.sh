@@ -16,5 +16,5 @@ if [ ! -e /etc/apt/sources.list.d/firefox.list ]; then
     echo "deb-src http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/firefox-source.list
 fi
 sudo sed -i 's/deb http/deb [arch=armhf] http/; s/deb-src http/deb [arch=armhf] http/' /etc/apt/sources.list /etc/apt/sources.list.d/raspi.list
-sudo apt update -y
+sudo apt update
 echo "Successfully patched /etc/apt/sources.list*"
