@@ -7,10 +7,11 @@ if [ -n "$(ls minetest-data*.deb 2> /dev/null)" ]; then
     exit 0
 fi
 
+sudo apt install -y fonts-liberation python-imaging
 apt-get download minetest-data
 DEB="$(ls minetest-data*.deb)"
 rm -rf tmp; mkdir -p tmp; cd tmp
-ar xv ../"${DEB}"
+ar xf ../"${DEB}"
 mkdir newcontrol; cd newcontrol
 tar xf ../control.tar.gz
 echo "Multi-Arch: foreign">> control

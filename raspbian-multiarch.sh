@@ -6,6 +6,7 @@ PROTECTED_PACKAGES="raspberrypi-ui-mods rpi-update pi-package pi-package-session
 ./stealthrpi-packages.sh
 ./libcanberra-packages.sh
 ./minetest-data-package.sh
+sudo dpkg --install libpam-modules-bin_*_armhf.deb # must precede libpam-modules
 sudo dpkg --install *.deb
 
 sudo apt install -y libgcc1:arm64 gcc-6-base:arm64 libc6:arm64 ${PROTECTED_PACKAGES} # basic deps
