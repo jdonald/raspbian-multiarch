@@ -6,7 +6,7 @@ On a fresh Raspbian installation, clone this repo and run:
 
 This script sets up a hybrid 32-bit / 64-bit user environment, so a great starting
 image is [Raspbian with a 64-bit kernel](https://github.com/Crazyhead90/pi64/releases).
-The process should complete in about 10 minutes on a Pi 3B+, but will take longer
+The process should complete in about 20 minutes on a Pi 3B+, but will take longer
 if you have a slow internet connection and get bottlenecked on downloading packages.
 
 The key idea here is to work around APT's Draconian multiarch restrictions by
@@ -17,7 +17,7 @@ reinstalling the original +rpi packages.
 
 This script even runs on a standard 32-bit Raspbian system image. When necessary, it
 will install **qemu-user** so you can seamlessly run 64-bit commands. Heavy
-graphical applications won't work in emulation, but try out Nethack and other console
+graphical applications won't work in emulation, but try out NetHack and other console
 commands. After that point you can consider whether it still makes sense to replace
 the kernel for true ARM64 execution. Furthermore, this means you can trial a
 system configuration on a Pi 2, Pi Zero, or other boards with 32-bit hardware.
