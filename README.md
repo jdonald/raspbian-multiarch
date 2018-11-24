@@ -12,8 +12,8 @@ if you have a slow internet connection and get bottlenecked on downloading packa
 The key idea here is to work around APT's Draconian multiarch restrictions by
 patching the +rpi packages. By tweaking version info and creating these "Stealth RPI"
 packages many conflicts are avoided. This is a big hack, but with benefits like
-retaining ARMv6 (Pi Zero) compatibility. In the worst case you can fall back by
-reinstalling the original +rpi packages.
+retaining ARMv6 (Pi Zero) compatibility. In the worst case you can fall back with
+./undo.sh to install the original +rpi packages.
 
 This script even runs on a standard 32-bit Raspbian system image. When necessary, it
 will install **qemu-user** so you can seamlessly run 64-bit commands. Heavy

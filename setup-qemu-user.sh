@@ -10,7 +10,7 @@ if ! uname -m | grep -q "armv7"; then
 fi
 
 echo "32-bit kernel detected, setting up qemu-user for (simple) aarch64 programs"
-sudo apt install -y qemu-system-arm qemu-user ${PROTECTED_PACKAGES}
+sudo apt install -y qemu-user ${PROTECTED_PACKAGES}
 
 if ! update-binfmts --display | grep -q "qemu-aarch64"; then
    sudo cp -vf qemu-aarch64 /var/lib/binfmts/
