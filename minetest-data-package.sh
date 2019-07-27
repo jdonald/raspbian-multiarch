@@ -7,16 +7,16 @@ if [ -n "$(ls minetest-data*.deb 2> /dev/null)" ]; then
     exit 0
 fi
 
-sudo apt install -y fonts-liberation python-imaging
+sudo apt install -y fonts-liberation fonts-croscore python-pil
 apt-get download minetest-data
 DEB="$(ls minetest-data*.deb)"
 rm -rf tmp; mkdir -p tmp; cd tmp
 ar xf ../"${DEB}"
 mkdir newcontrol; cd newcontrol
-tar xf ../control.tar.gz
+tar xf ../control.tar.*
 echo "Multi-Arch: foreign">> control
-tar czf ../control.tar.gz *
+tar cJf ../control.tar.xz *
 cd .. # leave newcontrol/
-ar cr ../"${DEB}" debian-binary control.tar.gz data.tar.*
+ar cr ../"${DEB}" debian-binary control.tar.xz data.tar.*
 cd .. # leave tmp/
 echo "Fixed up minetest-data to be truly multiarch"
