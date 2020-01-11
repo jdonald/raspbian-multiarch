@@ -2,8 +2,8 @@
 
 # This version conflict seems to come from Debian, not Raspbian
 
-CANBERRA_ARMHF_VERSION="0.30-3+b2"
-CANBERRA_ARM64_VERSION="0.30-3"
+CANBERRA_ARMHF_VERSION="0.30-7"
+CANBERRA_ARM64_VERSION="0.30-7"
 CANBERRA_PACKAGES="libcanberra0 libcanberra-gtk3-0"
 
 if [ "$(ls libcanberra*_armhf.deb 2> /dev/null | wc -w)" == "2" ]; then
