@@ -8,7 +8,7 @@ DRM_ARMHF_VERSION="2.4.99-1~bpo10~1"
 DRM_ARM64_VERSION="2.4.97-1"
 
 PACKAGES="$(apt list --installed |& grep '+rp\|'${MESA_ARMHF_VERSION}'\|'${DRM_ARMHF_VERSION} | sed 's#/.*$##')"
-for additional in libasan3 libstdc++-6-dev libgcc-6-dev libpam-modules-bin; do
+for additional in libasan3 libubsan0 libstdc++-6-dev libgcc-6-dev gcc-7-base xdg-dbus-proxy libdav1d3 vlc-plugin-base bubblewrap libpam-modules-bin; do
     if ! (echo "${PACKAGES}" | grep -q "${additional}"); then
         PACKAGES="${PACKAGES} ${additional}"
     fi

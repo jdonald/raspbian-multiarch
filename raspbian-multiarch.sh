@@ -1,14 +1,14 @@
 #!/bin/bash -e
 
-PROTECTED_PACKAGES="raspberrypi-ui-mods rpi-update pi-package qt5-gtk-platformtheme bubblewrap"
+PROTECTED_PACKAGES="raspberrypi-ui-mods rpi-update pi-package qt5-gtk-platformtheme"
 
 ./fix-sources.sh
+sudo apt update
 ./stealthrpi-packages.sh
 
 #./libcanberra-packages.sh
 #./minetest-data-package.sh
 
-sudo apt update
 sudo dpkg --install *.deb
 
 sudo sed -i 's@^/\(.*\)libarmmem@#/\1libarmmem@' /etc/ld.so.preload # comment out 32-bit LD_PRELOAD
