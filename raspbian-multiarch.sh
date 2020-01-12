@@ -38,6 +38,12 @@ sudo apt autoremove -y
 file /usr/bin/figlet-figlet
 figlet "figlet : arm64"
 echo "Querying 64-bit GL and GLES profiles, probably software rendering:"
-glxinfo | egrep "Vendor|Device|GLES\[23\]"
+glxinfo | egrep --color=none "Vendor|Device|GLES\[23\]"
+if [ "$(uname -m)" == "aarch64" ]; then
+    echo "Downloading and unpacking custom Mesa 19.3 binaries"
+    curl -Lo- https://www.dropbox.com/s/yjpez224cotk3tj/mesa-v3d_19.3-EXT_buffer_storage_arm64.tar.xz?dl=0 | sudo tar -xJf- -C /
+    glxinfo | egrep --color=none "Vendor|Device|GLES\[23\]"
+    echo "If that looks okay, try running arm64 glxgears"
+fi
 
 #echo "Next, run ./i386.sh if you want i386 packages too"
