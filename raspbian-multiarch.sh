@@ -9,6 +9,7 @@ sudo apt update
 #./libcanberra-packages.sh
 #./minetest-data-package.sh
 
+sudo dpkg --install libpam-modules*.deb || echo "Error installing libpam-modules-bin the first time"
 sudo dpkg --install *.deb
 
 sudo sed -i 's@^/\(.*\)libarmmem@#/\1libarmmem@' /etc/ld.so.preload # comment out 32-bit LD_PRELOAD

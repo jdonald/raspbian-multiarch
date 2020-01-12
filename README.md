@@ -17,7 +17,7 @@ The process should complete in about 20 minutes on a Pi 4B, but will take longer
 if you have a slow internet connection and get bottlenecked on downloading packages.
 
 This has been tested on a fresh install of the 2019-09-26 Buster image of Raspbian 
-desktop with the 4.19.93+ aarch64 kernel. It was last validated on January 10,
+desktop with the 4.19.93+ aarch64 kernel. It was last validated on January 11,
 2020 and is likely to break anytime thereafter due to changes in the Raspbian
 or Debian repositories.
 
