@@ -7,8 +7,11 @@ MESA_DEFAULTS_CONF="usr/share/drirc.d/00-mesa-defaults.conf"
 DRM_ARMHF_VERSION="2.4.99-1~bpo10~1"
 DRM_ARM64_VERSION="2.4.97-1"
 
+LIBOGG_ARMHF_VERSION="1.3.2-1+b2"
+LIBOGG_ARM64_VERSION="1.3.2-1+b1"
+
 PACKAGES="$(apt list --installed |& grep '+rp\|'${MESA_ARMHF_VERSION}'\|'${DRM_ARMHF_VERSION} | sed 's#/.*$##')"
-for additional in libasan3 libubsan0 libstdc++-6-dev libgcc-6-dev gcc-7-base xdg-dbus-proxy libdav1d3 vlc-plugin-base bubblewrap eject libpam-modules-bin; do
+for additional in libasan3 libubsan0 libstdc++-6-dev libgcc-6-dev gcc-7-base xdg-dbus-proxy libdav1d3 vlc-plugin-base bubblewrap eject libpam-modules-bin libogg0; do
     if ! (echo "${PACKAGES}" | grep -q "${additional}"); then
         PACKAGES="${PACKAGES} ${additional}"
     fi
@@ -45,6 +48,9 @@ for DEB in *.deb; do
     if grep -q "${DRM_ARMHF_VERSION/-*}" control; then
         sed -i "s/${DRM_ARMHF_VERSION/-*}/${DRM_ARM64_VERSION/-*}/g" control
     fi
+    if grep -q "libogg0" control; then
+        sed -i "s/${LIBOGG_ARMHF_VERSION}/${LIBOGG_ARM64_VERSION}/g" control
+    fi
     sed -i 's/+rp[it][[:digit:]]//g' control
     tar cJf ../control.tar.xz *
     cd .. # leave newcontrol/
@@ -55,6 +61,7 @@ for DEB in *.deb; do
     if [ -e "${MESA_DEFAULTS_CONF}" ]; then
         pwd
         patch -p1 "${MESA_DEFAULTS_CONF}" < ../../00-mesa-defaults.conf_downgrade.patch
+        sudo cp "${MESA_DEFAULTS_CONF}" "/${MESA_DEFAULTS_CONF}"
     fi
     tar cJf ../data.tar.xz *
     cd .. # leave newdata/
